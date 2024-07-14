@@ -1,0 +1,27 @@
+server:
+  port: 8515
+
+spring:
+  application:
+    name: service-pay
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.233.137:8848
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.233.137:3306/db_fhr_shopping?serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&useSSL=true
+    username: root
+    password: 123456
+  redis:
+    host: 192.168.233.137
+    port: 6379
+    password: 123456
+    database: 2
+    #引入application-alipay.yml文件
+  config:
+    import: application-alipay.yml
+
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mapper/*.xml
